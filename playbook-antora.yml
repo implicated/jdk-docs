@@ -1,10 +1,10 @@
 site:
   title: Implicated
   url: https://docs.implicated.com
-  start_page: %COMPONENT%::index.adoc
+  start_page: jdk8::index.adoc
 content:
   sources:
-    - url: ../%REPOSITORY%
+    - url: ../jdk8-docs
       start_paths:
         - docs
       branches: HEAD
