@@ -1,0 +1,37 @@
+site:
+  title: Implicated
+  url: https://docs.implicated.com
+  start_page: %COMPONENT%::index.adoc
+content:
+  sources:
+    - url: ../%REPOSITORY%
+      start_paths:
+        - docs
+      branches: HEAD
+ui:
+  bundle:
+    url: https://raw.githubusercontent.com/implicated/docs-template/ui/ui-bundle.zip?raw=true
+    snapshot: true
+  supplemental_files:
+    - path: ui.yml
+      contents: |
+        static_files:
+        - .nojekyll
+    - path: .nojekyll
+output:
+  clean: true
+
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+asciidoc:
+  extensions:
+    - asciidoctor-highlight.js/
+    - asciidoctor-plantuml
+  attributes:
+    experimental: ''
+    page-pagination: ''
+    idprefix: ''
+    idseparator: '-'
+    source-highlighter: highlightjs-ext
+    plantuml-server-url: http://www.plantuml.com/plantuml

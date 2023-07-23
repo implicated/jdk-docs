@@ -1,0 +1,5 @@
+= docs-template
+
+This is the *template repository* for the `**-docs` series of repositories.
+
+Need to set your own actions repository secret named `ACCESS_TOKEN`

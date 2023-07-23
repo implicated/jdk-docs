@@ -1,0 +1,28 @@
+name: Configuration Repository
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'docs/**'
+      - 'playbook-antora.yml'
+jobs:
+  configuration-repository:
+    name: Configuration Repository
+    runs-on: ubuntu-latest
+    if: github.event.repository.name != 'docs-template' && !startsWith(github.event.head_commit.message, 'Initial commit')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set Repository Description
+        run: |
+          REPO=$(echo ${GITHUB_REPOSITORY##*/} | tr '[:upper:]' '[:lower:]')
+          OWNER=$(echo $GITHUB_REPOSITORY_OWNER | tr '[:upper:]' '[:lower:]')
+          URL='https://'${OWNER}'.github.io/'${REPO}
+          gh repo edit --homepage $URL
+          gh repo edit --enable-issues=false --enable-projects=false --enable-wiki=false
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Remove workflow
+        run: |
+          rm -rf \
+          .github/workflows/configuration-repository.yml

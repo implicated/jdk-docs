@@ -1,0 +1,5 @@
+name: %COMPONENT%
+title: %TITLE%
+version: ~
+nav:
+- modules/ROOT/nav.adoc

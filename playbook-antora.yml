@@ -1,0 +1,36 @@
+site:
+  title: Implicated
+  url: https://docs.implicated.com
+  start_page: %COMPONENT%::index.adoc
+content:
+  sources:
+    - url: ../%REPOSITORY%
+      start_paths:
+        - docs
+      branches: HEAD
+ui:
+  bundle:
+    url: https://raw.githubusercontent.com/implicated/docs-template/ui/ui-bundle.zip?raw=true
+    snapshot: true
+runtime:
+  fetch: true
+  cache_dir: ./.cache/antora
+  log:
+    failure_level: error
+output:
+  clean: true
+
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+asciidoc:
+  extensions:
+    - asciidoctor-kroki
+    - asciidoctor-highlight.js/
+  attributes:
+    experimental: ''
+    page-pagination: ''
+    idprefix: ''
+    idseparator: '-'
+    kroki-fetch-diagram: true
+    source-highlighter: highlightjs-ext

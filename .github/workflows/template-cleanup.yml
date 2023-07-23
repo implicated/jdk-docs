@@ -1,0 +1,41 @@
+name: Template Cleanup
+on:
+  push:
+    branches: [ master ]
+jobs:
+  template-cleanup:
+    name: Template Cleanup
+    runs-on: ubuntu-latest
+    if: github.event.repository.name != 'docs-template'
+    permissions:
+      contents: write
+    steps:
+      - name: Fetch Sources
+        uses: actions/checkout@v3
+      - name: Cleanup
+        run: |
+          export LC_CTYPE=C
+          export LANG=C
+          REPOSITORY="${GITHUB_REPOSITORY##*/}"
+          COMPONENT="${REPOSITORY%%-*}"
+          TITLE=$(echo ${COMPONENT:0:1} | tr '[:lower:]' '[:upper:]')${COMPONENT:1}
+          sed -i "s/%REPOSITORY%/$REPOSITORY/g" playbook-*
+          sed -i "s/%COMPONENT%/$COMPONENT/g" playbook-* 
+          find docs -type f -exec sed -i "s/%COMPONENT%/$COMPONENT/g" {} +
+          find docs -type f -exec sed -i "s/%TITLE%/Learn $TITLE/g" {} +
+          find .github/templates -type f -exec sed -i "s/%TITLE%/$TITLE/g" {} +
+          cp -f .github/templates/* .
+          rm -rf \
+            .github/templates/ \
+            .github/workflows/template-cleanup.yml
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Template cleanup"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
