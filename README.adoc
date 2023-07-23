@@ -1,3 +1,13 @@
-= Jdk8 源码学习
+= JDK 8 源码学习
 
-Jdk8 源码学习
+JDK 8 源码学习
+
+== 准备
+
+. 打开源码路径，解压源码
+. 设置 idea compiler
+. 设置 idea debugger
+. 设置 JDK 源码路径
+
+https://www.bilibili.com/video/BV1V7411U78L/?vd_source=eed07c49eca5117512b9dc16507b6a80[read more]
+
