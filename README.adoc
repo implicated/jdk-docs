@@ -1,13 +1,11 @@
 = JDK 8 源码学习
 
-JDK 8 源码学习
+JDK 8 源码学习。
 
-== 准备
-
-. 打开源码路径，解压源码
-. 设置 idea compiler
-. 设置 idea debugger
-. 设置 JDK 源码路径
-
-https://www.bilibili.com/video/BV1V7411U78L/?vd_source=eed07c49eca5117512b9dc16507b6a80[read more]
-
+.jdk 版本
+[source,shell,indent=0,options=nowrap]
+----
+openjdk version "1.8.0_275"
+OpenJDK Runtime Environment (Zulu 8.50.0.1017-CA-macos-aarch64) (build 1.8.0_275-b01)
+OpenJDK 64-Bit Server VM (Zulu 8.50.0.1017-CA-macos-aarch64) (build 25.275-b01, mixed mode)
+----
