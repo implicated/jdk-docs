@@ -1,11 +1,11 @@
-= JDK 8 源码学习
+= JDK 源码学习
 
-JDK 8 源码学习。
+JDK 源码学习。
 
 .jdk 版本
 [source,shell,indent=0,options=nowrap]
 ----
-openjdk version "1.8.0_275"
-OpenJDK Runtime Environment (Zulu 8.50.0.1017-CA-macos-aarch64) (build 1.8.0_275-b01)
-OpenJDK 64-Bit Server VM (Zulu 8.50.0.1017-CA-macos-aarch64) (build 25.275-b01, mixed mode)
+openjdk 22-internal 2024-03-19
+OpenJDK Runtime Environment (build 22-internal-adhoc.z3.openjdk)
+OpenJDK 64-Bit Server VM (build 22-internal-adhoc.z3.openjdk, mixed mode)
 ----

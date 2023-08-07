@@ -1,0 +1,85 @@
+= Compiler JDK
+
+== JDK Supported Build Platforms
+
+[IMPORTANT]
+====
+`JDK8` 不支持 `M1` 芯片，`macOS aarch64` 平台是从 `JDK17` 开始支持，以前的版本会 `M1` 会被检测为 `ARM32(macosx-arm)` 。
+
+image::m1-jdk8-error.png[]
+====
+
+https://wiki.openjdk.org/display/Build/Supported+Build+Platforms[OpenJDK Supported Build Platforms]
+
+== Compile JDK
+
+=== Install Boot JDK
+
+To compile JDK 22, your Boot JDK version must be either 20, 21, or 22.
+
+[source,shell,indent=0,options=nowrap]
+----
+sdk i java 20.0.2-open
+----
+
+=== Get the complete source code:
+
+当前 仓库源码 `JDK version` 为 22。
+
+[source,java,indent=0,options=nowrap]
+----
+git clone https://git.openjdk.org/jdk/ openjdk
+----
+
+=== Run Configure
+
+[source,shell,indent=0,options=nowrap]
+----
+bash configure --with-boot-jdk=$HOME/.sdkman/candidates/java/20.0.2-open
+----
+
+.configure success
+image::jdk-compiler-configure.png[]
+
+****
+*possible errors:*
+
+* xcode error
++
+[source,shell,indent=0,options=nowrap]
+----
+error: XCode tool 'metal' neither found in path nor with xcrun
+----
++
+.solution
+[source,shell,indent=0,options=nowrap]
+----
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+----
+****
+
+=== Run make
+
+[source,shell,indent=0,options=nowrap]
+----
+# build all
+make all
+# build jdk images
+make images
+----
+
+=== Verify your newly built JDK
+
+[source,shell,indent=0,options=nowrap]
+----
+./build/*/images/jdk/bin/java -version
+----
+
+=== Run basic tests
+
+[source,shell,indent=0,options=nowrap]
+----
+make run-test-tier1
+----
+
+https://openjdk.org/groups/build/doc/building.html[Building the JDK^]

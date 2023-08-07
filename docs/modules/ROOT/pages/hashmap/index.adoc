@@ -1,0 +1,19 @@
+= HashMap
+
+[cols=',,m']
+|===
+| Filed | Remark | Default
+
+| DEFAULT_INITIAL_CAPACITY | 默认初始化大小 | 1 << 4 = 16
+| MAXIMUM_CAPACITY | 最大大小 | 1 << 30 = 1073741824
+| DEFAULT_LOAD_FACTOR | 默认负载因子 | 0.75
+| TREEIFY_THRESHOLD | 转化为红黑树的临界值 | 8
+| UNTREEIFY_THRESHOLD | 转换为链表的临界值 | 6
+| MIN_TREEIFY_CAPACITY | 最小树形化容量阈值，当哈希表中的容量 > 该值时，才允许树形化链表，否则，若桶内元素太多时，则直接扩容，而不是树形化|
+| table ||
+| entrySet ||
+| size | 大小，当前 `HashMap` 所能容纳键值对数量 |
+| modCount | 修改次数，用于 `throws ConcurrentModificationException` |
+| threshold | 扩容临界点，当前 `HashMap` 所能容纳键值对数量的最大值，超过这个值，则需扩容 |
+| loadFactor | 负载因子 |
+|===
