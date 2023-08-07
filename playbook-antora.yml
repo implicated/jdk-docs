@@ -4,7 +4,7 @@ site:
   start_page: jdk8::index.adoc
 content:
   sources:
-    - url: ../jdk8-docs
+    - url: ../jdk-docs
       start_paths:
         - docs
       branches: HEAD

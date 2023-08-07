@@ -1,5 +1,5 @@
-name: jdk8
-title: Learn Jdk8
+name: jdk
+title: Learn JDK
 version: ~
 nav:
 - modules/ROOT/nav.adoc
