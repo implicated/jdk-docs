@@ -1,7 +1,7 @@
 site:
   title: Implicated
   url: https://docs.implicated.com
-  start_page: jdk8::index.adoc
+  start_page: jdk::index.adoc
 content:
   sources:
     - url: ../jdk-docs
