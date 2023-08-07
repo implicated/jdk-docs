@@ -82,4 +82,3 @@ make images
 make run-test-tier1
 ----
 
-https://openjdk.org/groups/build/doc/building.html[Building the JDK^]

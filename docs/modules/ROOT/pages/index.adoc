@@ -14,16 +14,15 @@
 . 打开 menu:Preferences[Build,Execution,Deployment > Compiler]，调大 `heap size`，编译需要较大的堆内存。
 . 打开 menu:Preferences[Build,Execution,Deployment > Debugger > Stepping]，关闭选项 `Do not step into the classes` 的勾。
 
+****
 https://www.bilibili.com/video/BV1V7411U78L/?vd_source=eed07c49eca5117512b9dc16507b6a80[read more]
+****
 
 === 手动编译 `JDK`
 
-xref:jdk.adoc[如何手动编译 JDK]
+. xref:compiler-jdk.adoc[手动编译 JDK]，然后重新执行 1.1 中的步骤2、3、4。
+. 修改 `JDK` 源码后需要运行 `make images` 重新编译。
 
-.jdk 版本
-[source,shell,indent=0,options=nowrap]
-----
-openjdk 22-internal 2024-03-19
-OpenJDK Runtime Environment (build 22-internal-adhoc.z3.openjdk)
-OpenJDK 64-Bit Server VM (build 22-internal-adhoc.z3.openjdk, mixed mode)
-----
+****
+https://openjdk.org/groups/build/doc/building.html[read more^]
+****
