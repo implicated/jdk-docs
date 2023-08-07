@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Compiler JDK :: Implicated</title>
+    <link rel="canonical" href="https://docs.implicated.com/jdk8/jdk.html">
+    <meta name="generator" content="Antora 3.1.4">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <script>var uiRootPath = '../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.implicated.com">Implicated</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="jdk8" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Learn Jdk8</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Learn JDK</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Learn Jdk8</a></li>
+    <li><a href="jdk.html">Compiler JDK</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Compiler JDK</h1>
+<div class="sect1">
+<h2 id="jdk-supported-build-platforms"><a class="anchor" href="#jdk-supported-build-platforms"></a>JDK Supported Build Platforms</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>JDK8</code> 不支持 <code>M1</code> 芯片，<code>macOS aarch64</code> 平台是从 <code>JDK17</code> 开始支持，以前的版本会 <code>M1</code> 会被检测为 <code>ARM32(macosx-arm)</code> 。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/m1-jdk8-error.png" alt="m1 jdk8 error">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://wiki.openjdk.org/display/Build/Supported+Build+Platforms">OpenJDK Supported Build Platforms</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="compile-jdk"><a class="anchor" href="#compile-jdk"></a>Compile JDK</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="install-boot-jdk"><a class="anchor" href="#install-boot-jdk"></a>Install Boot JDK</h3>
+<div class="paragraph">
+<p>To compile JDK 22, your Boot JDK version must be either 20, 21, or 22.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">sdk i java 20.0.2-open</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="get-the-complete-source-code"><a class="anchor" href="#get-the-complete-source-code"></a>Get the complete source code:</h3>
+<div class="paragraph">
+<p>当前 仓库源码 <code>JDK version</code> 为 22。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-java" data-lang="java">git clone https:<span class="hljs-comment">//git.openjdk.org/jdk/ openjdk</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="run-configure"><a class="anchor" href="#run-configure"></a>Run Configure</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">bash configure --with-boot-jdk=$HOME/.sdkman/candidates/java/20.0.2-open</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/jdk-compiler-configure.png" alt="jdk compiler configure">
+</div>
+<div class="title">Figure 1. configure success</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>possible errors:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>xcode error</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">error: XCode tool &#x27;metal&#x27; neither found in path nor with xcrun</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">solution</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">sudo xcode-select -s /Applications/Xcode.app/Contents/Developer</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="run-make"><a class="anchor" href="#run-make"></a>Run make</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">build all</span>
+make all
+<span class="hljs-meta prompt_"># </span><span class="language-bash">build jdk images</span>
+make images</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="verify-your-newly-built-jdk"><a class="anchor" href="#verify-your-newly-built-jdk"></a>Verify your newly built JDK</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">./build/*/images/jdk/bin/java -version</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="run-basic-tests"><a class="anchor" href="#run-basic-tests"></a>Run basic tests</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">make run-test-tier1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://openjdk.org/groups/build/doc/building.html" target="_blank" rel="noopener">Building the JDK</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Last updated on 2023-08-07 11:51:42</p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/vendor/lunr.js"></script>
+<script src="../_/js/search-ui.js" id="search-ui-script" data-site-root-path=".." data-snippet-length="100" data-stylesheet="../_/css/search.css"></script>
+<script async src="../search-index.js"></script>
+  </body>
+</html>

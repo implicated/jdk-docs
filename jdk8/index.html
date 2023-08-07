@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Learn JDK8 :: Implicated</title>
+    <title>Learn JDK :: Implicated</title>
     <link rel="canonical" href="https://docs.implicated.com/jdk8/index.html">
     <meta name="generator" content="Antora 3.1.4">
     <link rel="stylesheet" href="../_/css/site.css">
@@ -38,7 +38,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Learn JDK8</a>
+    <a class="nav-link" href="index.html">Learn JDK</a>
   </li>
 </ul>
   </li>
@@ -55,7 +55,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Learn Jdk8</a></li>
-    <li><a href="index.html">Learn JDK8</a></li>
+    <li><a href="index.html">Learn JDK</a></li>
   </ul>
 </nav>
 </div>
@@ -64,40 +64,59 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Learn JDK8</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="listingblock">
-<div class="title">jdk 版本</div>
-<div class="content">
-<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">openjdk version &quot;1.8.0_275&quot;
-OpenJDK Runtime Environment (Zulu 8.50.0.1017-CA-macos-aarch64) (build 1.8.0_275-b01)
-OpenJDK 64-Bit Server VM (Zulu 8.50.0.1017-CA-macos-aarch64) (build 25.275-b01, mixed mode)</code></pre>
-</div>
-</div>
-</div>
-</div>
+<h1 class="page">Learn JDK</h1>
 <div class="sect1">
-<h2 id="准备"><a class="anchor" href="#准备"></a>准备</h2>
+<h2 id="debug-源码的两种方法"><a class="anchor" href="#debug-源码的两种方法"></a>Debug 源码的两种方法</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="替换-源码"><a class="anchor" href="#替换-源码"></a>替换 源码</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>这种方法只能在源码行尾注释，否则 <code>debug</code> 行号会错误。同时也不能改动源码，因为运行的是编译好的 <code>jar</code> 。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>打开源码路径，解压源码</p>
+<p>打开源码路径，找到 <code>src.zip</code> 解压源码。</p>
 </li>
 <li>
-<p>设置 idea compiler</p>
+<p>打开 <span class="menuseq"><b class="menu">Project Structure</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">SDKs</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Sourcepath</b></span>，设置 <code>JDK</code> 源码路径。</p>
 </li>
 <li>
-<p>设置 idea debugger</p>
+<p>打开 <span class="menuseq"><b class="menu">Preferences</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Build,Execution,Deployment</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Compiler</b></span>，调大 <code>heap size</code>，编译需要较大的堆内存。</p>
 </li>
 <li>
-<p>设置 JDK 源码路径</p>
+<p>打开 <span class="menuseq"><b class="menu">Preferences</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Build,Execution,Deployment</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Debugger</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Stepping</b></span>，关闭选项 <code>Do not step into the classes</code> 的勾。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p><a href="https://www.bilibili.com/video/BV1V7411U78L/?vd_source=eed07c49eca5117512b9dc16507b6a80">read more</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="手动编译-jdk"><a class="anchor" href="#手动编译-jdk"></a>手动编译 <code>JDK</code></h3>
+<div class="paragraph">
+<p><a href="jdk.html" class="xref page">如何手动编译 JDK</a></p>
+</div>
+<div class="listingblock">
+<div class="title">jdk 版本</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-shell" data-lang="shell">openjdk 22-internal 2024-03-19
+OpenJDK Runtime Environment (build 22-internal-adhoc.z3.openjdk)
+OpenJDK 64-Bit Server VM (build 22-internal-adhoc.z3.openjdk, mixed mode)</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -106,7 +125,7 @@ OpenJDK 64-Bit Server VM (Zulu 8.50.0.1017-CA-macos-aarch64) (build 25.275-b01, 
 </main>
 </div>
 <footer class="footer">
-  <p>Last updated on 2023-07-25 02:04:22</p>
+  <p>Last updated on 2023-08-07 11:51:42</p>
 </footer>
 <script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
 <script async src="../_/js/vendor/highlight.js"></script>
